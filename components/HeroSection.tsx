@@ -60,11 +60,11 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Header Logo */}
+      {/* Header Logo - max-width 60% */}
       <img 
         src="img/logo.png" 
         alt="천안시청소년재단 로고" 
-        className="header-logo absolute bottom-[40px] left-1/2 -translate-x-1/2 w-auto max-w-[85%] h-auto opacity-90 drop-shadow-xl"
+        className="header-logo absolute bottom-[40px] left-1/2 -translate-x-1/2 w-auto max-w-[60%] h-auto opacity-90 drop-shadow-xl"
         style={{ zIndex: 20 }}
       />
     </section>

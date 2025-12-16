@@ -1,6 +1,6 @@
 import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { MapPin, Navigation } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 export const LocationInfo: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();

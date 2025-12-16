@@ -19,8 +19,8 @@ export const FooterSection: React.FC = () => {
             <p className="text-[11px] text-brown-500 font-medium">
                 ©천안시청소년복합커뮤니티센터 교육사업팀
             </p>
-             <p className="text-[10px] text-gray-400">
-                BGM: 임다솔 - 우리네 소리를 듣다 (CC BY)
+             <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '5px' }}>
+                BGM: 유민규 - bed (CC BY)
             </p>
         </div>
       </div>
