@@ -115,9 +115,11 @@ const App: React.FC = () => {
         <div className="fixed top-[20px] right-[20px] z-50">
            <button
             onClick={toggleMusic}
-            className={`w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md overflow-hidden bg-white/80 border-[2px] border-[#3E2723] shadow-lg ${
-              isPlaying ? '' : ''
-            }`}
+            className={`w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all duration-500 
+              backdrop-blur-md overflow-hidden 
+              bg-black/40 border-[2px] border-[#C5A059] 
+              shadow-lg hover:bg-black/60
+              ${isPlaying ? 'shadow-[0_0_15px_#C5A059]' : ''}`}
             aria-label="Toggle Music"
           >
              <img 
