@@ -29,25 +29,27 @@ export const LocationInfo: React.FC = () => {
             
              <div className="w-full h-[1px] bg-brown-900/10 mx-auto" />
 
-             {/* Navigation Buttons (Deep Links) */}
+             {/* Navigation Buttons */}
             <div className="w-full space-y-3 pt-2">
+                {/* Naver Map Button */}
                 <a 
-                    href="tmap://search?name=천안시청소년복합커뮤니티센터"
+                    href="https://map.naver.com/p/search/천안시청소년복합커뮤니티센터"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center gap-3 w-full bg-gradient-to-r from-gray-900 to-black text-white py-4 rounded-md transition-all duration-300 shadow-md active:scale-95 hover:shadow-lg"
+                    className="flex items-center justify-center gap-3 w-full bg-[#03C75A] text-white py-4 rounded-md transition-all duration-300 shadow-md active:scale-95 hover:shadow-lg hover:bg-[#02b351]"
                 >
-                    <Navigation size={18} className="text-white" />
-                    <span className="font-medium">티맵(T map)으로 안내</span>
+                    <span className="font-bold text-lg">N</span>
+                    <span className="font-medium">네이버 지도로 보기</span>
                 </a>
                 
+                {/* Kakao Map Button */}
                 <a 
                     href="https://map.kakao.com/link/search/천안시청소년복합커뮤니티센터"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center gap-3 w-full bg-[#FEE500] hover:bg-[#FDD835] text-brown-900 py-4 rounded-md transition-all duration-300 shadow-md active:scale-95 hover:shadow-lg"
+                    className="flex items-center justify-center gap-3 w-full bg-[#FEE500] hover:bg-[#FDD835] text-[#3E2723] py-4 rounded-md transition-all duration-300 shadow-md active:scale-95 hover:shadow-lg"
                 >
-                    <MapPin size={18} />
+                    <MapPin size={18} fill="#3E2723" />
                     <span className="font-medium">카카오내비로 안내</span>
                 </a>
             </div>

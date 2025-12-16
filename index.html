@@ -24,6 +24,7 @@
               },
               gold: {
                 500: '#C5A059', // Metallic Gold
+                300: '#E0CFA5',
               },
               black: {
                 900: '#0f0c08', // Deep Black
@@ -36,6 +37,7 @@
               'float-note': 'floatNote 15s linear infinite',
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'shimmer': 'shimmer 2.5s linear infinite',
+              'spin-slow': 'spin 4s linear infinite',
             },
             keyframes: {
               floatNote: {
@@ -74,7 +76,7 @@
           transparent 40px
         );
         background-size: 100% 40px;
-        opacity: 0.03; /* Very faint */
+        opacity: 0.07; /* Increased opacity slightly as per request for faint lines */
         pointer-events: none;
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;

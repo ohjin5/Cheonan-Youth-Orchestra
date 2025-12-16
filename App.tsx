@@ -6,7 +6,7 @@ import { LeadershipSection } from './components/LeadershipSection';
 import { MemberListSection } from './components/MemberListSection';
 import { LocationInfo } from './components/LocationInfo';
 import { FooterSection } from './components/FooterSection';
-import { Music, Music2, Share2 } from 'lucide-react';
+import { Disc, Share2, Music2 } from 'lucide-react';
 
 const App: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -14,12 +14,39 @@ const App: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Classical background music
-    audioRef.current = new Audio('https://cdn.pixabay.com/audio/2022/08/23/audio_d14f63c81e.mp3'); 
+    // BGM Setup - Source: media/bgm.mp3
+    audioRef.current = new Audio('media/bgm.mp3');
     audioRef.current.loop = true;
     audioRef.current.volume = 0.5;
 
+    const playAudio = async () => {
+      if (!audioRef.current) return;
+      try {
+        await audioRef.current.play();
+        setIsPlaying(true);
+        // Remove listeners if play succeeded
+        cleanupListeners();
+      } catch (e) {
+        console.log("Autoplay blocked, waiting for interaction...");
+      }
+    };
+
+    const cleanupListeners = () => {
+      document.removeEventListener('click', playAudio);
+      document.removeEventListener('touchstart', playAudio);
+      document.removeEventListener('scroll', playAudio);
+    };
+
+    // Attempt autoplay
+    playAudio();
+
+    // Fallback: Play on first interaction
+    document.addEventListener('click', playAudio);
+    document.addEventListener('touchstart', playAudio);
+    document.addEventListener('scroll', playAudio);
+
     return () => {
+      cleanupListeners();
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current = null;
@@ -32,7 +59,7 @@ const App: React.FC = () => {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play().catch(e => console.log("Audio play failed (interaction required):", e));
+        audioRef.current.play().catch(e => console.log("Play failed", e));
       }
       setIsPlaying(!isPlaying);
     }
@@ -52,18 +79,18 @@ const App: React.FC = () => {
     }
   };
 
-  // Generate random notes for background - Updated to Gold Color
+  // Generate random notes - Low Density (7 notes)
   const renderFloatingNotes = () => {
-    const notes = ['♪', '♫', '♩', '♬', '♭', '♮', '♯', '𝄞', '𝄢'];
-    return Array.from({ length: 15 }).map((_, i) => (
+    const notes = ['♪', '♫', '♩', '♬', '𝄞', '𝄢'];
+    return Array.from({ length: 7 }).map((_, i) => (
       <div
         key={i}
         className="absolute text-gold-500 select-none animate-float-note font-serif opacity-0"
         style={{
           left: `${Math.random() * 90 + 5}%`,
           fontSize: `${Math.random() * 1.5 + 1}rem`,
-          animationDelay: `${Math.random() * 10}s`,
-          animationDuration: `${Math.random() * 8 + 12}s`,
+          animationDelay: `-${Math.random() * 15}s`, // Varied delay
+          animationDuration: `${Math.random() * 8 + 15}s`,
         }}
       >
         {notes[Math.floor(Math.random() * notes.length)]}
@@ -84,29 +111,23 @@ const App: React.FC = () => {
             {renderFloatingNotes()}
         </div>
 
-        {/* Floating Action Buttons */}
-        <div className="fixed top-6 right-4 z-50 flex flex-col gap-4 max-w-md w-full items-end pointer-events-none">
-          <div className="pointer-events-auto flex flex-col gap-3 mr-2 sm:mr-0">
-             <button
-              onClick={toggleMusic}
-              className={`p-3 rounded-full backdrop-blur-sm border shadow-lg transition-all duration-500 ${
-                isPlaying 
-                ? 'bg-gold-500/80 border-gold-500 text-white animate-pulse-slow' 
-                : 'bg-black-900/40 border-white/20 text-gold-500 hover:bg-black-900/60'
-              }`}
-              aria-label="Toggle Music"
-            >
-              {isPlaying ? <Music2 size={20} /> : <Music size={20} />}
-            </button>
-            
-            <button
-              onClick={handleShare}
-              className="p-3 rounded-full bg-beige-100/80 backdrop-blur-sm border border-brown-900/10 text-brown-900 shadow-md transition-all active:scale-95"
-              aria-label="Share"
-            >
-              <Share2 size={20} />
-            </button>
-          </div>
+        {/* Floating Music Control Button (Fixed Top-Right) */}
+        <div className="fixed top-[20px] right-[20px] z-50">
+           <button
+            onClick={toggleMusic}
+            className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 backdrop-blur-md ${
+              isPlaying 
+                ? 'bg-black-900/80 border-2 border-gold-500 animate-spin-slow shadow-[0_0_15px_rgba(197,160,89,0.5)]' 
+                : 'bg-gray-200/80 border-2 border-gray-400'
+            }`}
+            aria-label="Toggle Music"
+          >
+            {isPlaying ? (
+              <Disc size={24} className="text-gold-500" />
+            ) : (
+              <Music2 size={24} className="text-gray-500" />
+            )}
+          </button>
         </div>
 
         {/* Content Sections */}
@@ -118,6 +139,17 @@ const App: React.FC = () => {
             <MemberListSection />
             <LocationInfo />
             <FooterSection />
+            
+            {/* Share Button (Bottom) */}
+            <div className="px-6 pb-12 pt-4">
+              <button 
+                onClick={handleShare}
+                className="w-full bg-brown-900 text-beige-100 py-4 rounded-none border border-gold-500/30 flex items-center justify-center gap-3 shadow-lg hover:bg-brown-900/90 transition-colors uppercase tracking-widest text-sm font-bold"
+              >
+                <Share2 size={18} />
+                초대장 공유하기
+              </button>
+            </div>
         </div>
 
         {/* Toast Notification */}
