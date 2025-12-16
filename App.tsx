@@ -123,7 +123,7 @@ const App: React.FC = () => {
              <img 
                src="img/music.png" 
                alt="Music Control" 
-               className={`w-full h-full object-cover ${isPlaying ? 'animate-spin-slow' : ''}`}
+               className={`w-[60%] h-[60%] object-contain ${isPlaying ? 'animate-spin-slow' : ''}`}
              />
           </button>
         </div>
