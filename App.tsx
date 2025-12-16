@@ -6,7 +6,7 @@ import { LeadershipSection } from './components/LeadershipSection';
 import { MemberListSection } from './components/MemberListSection';
 import { LocationInfo } from './components/LocationInfo';
 import { FooterSection } from './components/FooterSection';
-import { Share2, Music } from 'lucide-react';
+import { Share2 } from 'lucide-react';
 
 const App: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -115,14 +115,16 @@ const App: React.FC = () => {
         <div className="fixed top-[20px] right-[20px] z-50">
            <button
             onClick={toggleMusic}
-            className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 backdrop-blur-md border-2 ${
-              isPlaying 
-                ? 'bg-black-900/80 border-gold-500 animate-spin-slow shadow-[0_0_15px_rgba(197,160,89,0.5)]' 
-                : 'bg-gray-200/80 border-gray-400'
+            className={`w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md overflow-hidden bg-white/80 border-[2px] border-[#3E2723] shadow-lg ${
+              isPlaying ? '' : ''
             }`}
             aria-label="Toggle Music"
           >
-             <Music size={24} className={isPlaying ? "text-gold-500" : "text-gray-500"} />
+             <img 
+               src="img/music.png" 
+               alt="Music Control" 
+               className={`w-full h-full object-cover ${isPlaying ? 'animate-spin-slow' : ''}`}
+             />
           </button>
         </div>
 

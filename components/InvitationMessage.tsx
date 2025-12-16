@@ -16,21 +16,19 @@ export const InvitationMessage: React.FC = () => {
         <div className="mb-8 text-brown-400">
             <MailOpen strokeWidth={1} size={28} />
         </div>
-
-        <h2 className="text-lg font-serif text-brown-900 mb-8 leading-relaxed break-keep">
-            음악은 때로는 위로가 되고,<br/>
-            때로는 희망이 됩니다.
-        </h2>
         
-        <p className="text-brown-700/80 text-sm leading-8 font-light max-w-xs mx-auto mb-10 break-keep">
-            지난 1년, 학업과 연습을 병행하며<br/>
-            땀 흘린 우리 청소년들이 만드는<br/>
-            감동의 무대에 여러분을 초대합니다.
+        <p className="text-brown-700/80 text-sm leading-8 font-light max-w-sm mx-auto mb-10 break-keep text-justify">
+            천안청소년복합커뮤니티센터 관장 윤여숭입니다.<br/><br/>
+            한 해 동안 음악으로 성장해 온 천안청소년오케스트라 단원들의 노력과 열정을 여러분과 함께 나누고자 합니다.<br/><br/>
+            이번 무대는 단원들의 협력과 도전의 결실이 담긴 소중한 공연입니다.<br/>
+            아름다운 선율 속에서 청소년들의 가능성과 희망을 함께 느껴주시기 바랍니다.<br/><br/>
+            바쁘신 가운데 함께해 주심에 진심으로 감사드립니다.
         </p>
-
-        <div className="font-serif text-brown-800 text-sm">
-            <p className="mb-1 text-xs text-brown-500">천안시청소년복합커뮤니티센터 관장</p>
-            <p className="font-bold text-base">윤여숭</p>
+        
+        <div className="w-full max-w-sm text-right">
+             <p className="text-brown-900 font-serif font-medium">
+                천안청소년복합커뮤니티센터 관장 윤여숭 올림
+             </p>
         </div>
       </div>
     </section>

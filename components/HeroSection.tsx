@@ -54,7 +54,7 @@ export const HeroSection: React.FC = () => {
                 <div className="h-[1px] w-full bg-white/20"></div>
                 <div className="flex flex-col gap-1">
                   <span className="text-xs text-gold-500 uppercase tracking-wider">Venue</span>
-                  <span className="text-base text-shadow">천안시청소년복합커뮤니티센터 대공연장</span>
+                  <span className="text-base text-shadow">천안시청소년복합커뮤니티센터<br/>대공연장</span>
                 </div>
            </div>
         </div>
