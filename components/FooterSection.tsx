@@ -23,7 +23,7 @@ export const FooterSection: React.FC = () => {
         
         <div className="pt-6 mt-6 border-t border-brown-200 space-y-2">
             <p className="text-[11px] text-brown-500 font-medium">
-                ©천안시청소년복합커뮤니티센터
+                ©천안시청소년복합커뮤니티센터 교육사업팀
             </p>
             <div className="flex flex-col items-center gap-1">
                  <p style={{ fontSize: '0.8rem', color: '#888' }}>
