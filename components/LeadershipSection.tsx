@@ -24,20 +24,22 @@ export const LeadershipSection: React.FC = () => {
                 <span>이중호</span>
             </div>
             
-            <div>
-                <span className="font-bold mr-2">사회</span>
-                <span className="mx-2">|</span>
-                <span>김병재</span>
-            </div>
+            {/* MC Removed as requested */}
 
             <div className="pt-6 mt-6 border-t border-brown-200">
                 <p className="text-brown-600 font-bold mb-4 text-base">지도강사</p>
                 <div className="text-base text-brown-800 leading-relaxed">
-                    <span className="inline-block mx-1">이소연(Vn1)</span>
-                    <span className="inline-block mx-1">윤경희(Vn2)</span>
-                    <span className="inline-block mx-1">김민지(Fl)</span>
-                    <span className="inline-block mx-1">김동찬(Cl)</span>
-                    <span className="inline-block mx-1">서동우(Vc)</span>
+                    {/* Line 1: 3 people */}
+                    <div className="mb-1">
+                        <span className="inline-block mx-1">이소연(Vn1)</span>
+                        <span className="inline-block mx-1">윤경희(Vn2)</span>
+                        <span className="inline-block mx-1">김민지(Fl)</span>
+                    </div>
+                    {/* Line 2: 2 people */}
+                    <div>
+                        <span className="inline-block mx-1">김동찬(Cl)</span>
+                        <span className="inline-block mx-1">서동우(Vc)</span>
+                    </div>
                 </div>
             </div>
         </div>

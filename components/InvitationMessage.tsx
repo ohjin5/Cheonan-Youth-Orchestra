@@ -26,8 +26,9 @@ export const InvitationMessage: React.FC = () => {
         </p>
         
         <div className="w-full max-w-sm text-right">
-             <p className="text-brown-900 font-serif font-medium">
-                천안청소년복합커뮤니티센터 관장 윤여숭 올림
+             <p className="text-brown-900 font-serif font-medium leading-relaxed">
+                천안시청소년복합커뮤니티센터 관장<br/>
+                윤여숭 올림
              </p>
         </div>
       </div>
