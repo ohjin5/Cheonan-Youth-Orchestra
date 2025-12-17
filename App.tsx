@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { HeroSection } from './components/HeroSection';
 import { InvitationMessage } from './components/InvitationMessage';
+import { ActionButtons } from './components/ActionButtons';
 import { ProgramHighlights } from './components/ProgramHighlights';
+import { GallerySection } from './components/GallerySection';
 import { LeadershipSection } from './components/LeadershipSection';
 import { MemberListSection } from './components/MemberListSection';
 import { LocationInfo } from './components/LocationInfo';
@@ -115,17 +117,19 @@ const App: React.FC = () => {
         <div className="fixed top-[20px] right-[20px] z-50">
            <button
             onClick={toggleMusic}
-            className={`w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all duration-500 
-              backdrop-blur-md overflow-hidden 
-              bg-black/40 border-[2px] border-[#C5A059] 
-              shadow-lg hover:bg-black/60
-              ${isPlaying ? 'shadow-[0_0_15px_#C5A059]' : ''}`}
+            className="w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all duration-500 border-[2px] border-[#3E2723] overflow-hidden"
+            style={{
+                background: 'linear-gradient(135deg, #fffbf0 0%, #f2e6d0 50%, #c5a059 100%)',
+                boxShadow: isPlaying 
+                    ? '0 0 20px rgba(197, 160, 89, 0.8)' 
+                    : '0 4px 15px rgba(197, 160, 89, 0.4)'
+            }}
             aria-label="Toggle Music"
           >
              <img 
                src="img/music.png" 
                alt="Music Control" 
-               className={`w-[80%] h-[80%] object-contain ${isPlaying ? 'animate-spin-slow' : ''}`}
+               className={`w-[60%] h-[60%] object-contain ${isPlaying ? 'animate-spin-slow' : ''}`}
              />
           </button>
         </div>
@@ -134,22 +138,13 @@ const App: React.FC = () => {
         <div className="relative z-10">
             <HeroSection />
             <InvitationMessage />
+            <ActionButtons onShare={handleShare} />
             <ProgramHighlights />
             <LeadershipSection />
             <MemberListSection />
+            <GallerySection />
             <LocationInfo />
             <FooterSection />
-            
-            {/* Share Button (Bottom) */}
-            <div className="px-6 pb-12 pt-4">
-              <button 
-                onClick={handleShare}
-                className="w-full bg-brown-900 text-beige-100 py-4 rounded-none border border-gold-500/30 flex items-center justify-center gap-3 shadow-lg hover:bg-brown-900/90 transition-colors uppercase tracking-widest text-sm font-bold"
-              >
-                <Share2 size={18} />
-                초대장 공유하기
-              </button>
-            </div>
         </div>
 
         {/* Toast Notification */}

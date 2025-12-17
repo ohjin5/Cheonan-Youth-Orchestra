@@ -6,7 +6,7 @@ export const InvitationMessage: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="relative py-20 px-8 bg-beige-100/50 overflow-hidden">
+    <section className="relative pt-20 pb-10 px-8 bg-beige-100/50 overflow-hidden">
       <div 
         ref={ref}
         className={`relative z-10 transition-all duration-1000 delay-200 transform flex flex-col items-center text-center ${
@@ -27,7 +27,7 @@ export const InvitationMessage: React.FC = () => {
         
         <div className="w-full max-w-sm text-right">
              <p className="text-brown-900 font-serif font-medium">
-                천안청소년복합커뮤니티센터 관장<br/> 윤여숭 올림
+                천안청소년복합커뮤니티센터 관장 윤여숭 올림
              </p>
         </div>
       </div>
