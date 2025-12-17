@@ -13,7 +13,7 @@ export const FooterSection: React.FC = () => {
         <div className="text-xs text-brown-800 leading-relaxed space-y-2">
             <p>
                <span className="inline-block font-bold text-brown-900 mr-1">주관 |</span>
-               천안시청소년재단, 천안시청소년복합커뮤니티센터
+               천안시청소년복합커뮤니티센터
             </p>
             <p>
                <span className="inline-block font-bold text-brown-900 mr-1">문의 |</span>
