@@ -102,6 +102,17 @@
         opacity: 0.3;
         pointer-events: none;
       }
+
+      /* Scroll Reveal Animation */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease;
+      }
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
     </style>
   <script type="importmap">
 {

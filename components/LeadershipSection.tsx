@@ -8,9 +8,7 @@ export const LeadershipSection: React.FC = () => {
     <section className="relative py-16 px-6">
       <div 
         ref={ref}
-        className={`max-w-sm mx-auto text-center transition-all duration-1000 transform ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        className={`max-w-sm mx-auto text-center scroll-reveal ${isVisible ? 'active' : ''}`}
       >
         {/* Baton Icon Representation */}
         <div className="text-4xl mb-4 text-brown-800">🪄</div>

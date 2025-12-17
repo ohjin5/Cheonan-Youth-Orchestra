@@ -51,9 +51,7 @@ export const MemberListSection: React.FC = () => {
     <section className="relative py-16 px-4 bg-white/30 backdrop-blur-sm">
       <div 
         ref={ref}
-        className={`max-w-md mx-auto transition-all duration-1000 transform ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        className={`max-w-md mx-auto scroll-reveal ${isVisible ? 'active' : ''}`}
       >
         <h2 className="text-xl font-serif text-center text-brown-900 mb-12 tracking-widest uppercase border-b border-gold-500/30 pb-4 inline-block w-full">
             Orchestra Members

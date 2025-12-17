@@ -147,8 +147,10 @@ const App: React.FC = () => {
             <FooterSection />
         </div>
 
-        {/* Toast Notification */}
-        <div className={`fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-black-900/90 text-gold-500 px-6 py-3 rounded-full text-sm font-serif tracking-wide shadow-xl transition-opacity duration-300 pointer-events-none z-50 ${showShareToast ? 'opacity-100' : 'opacity-0'}`}>
+        {/* Custom Toast Notification */}
+        <div 
+          className={`fixed bottom-[30px] left-1/2 transform -translate-x-1/2 bg-[rgba(0,0,0,0.8)] text-white px-6 py-3 rounded-[30px] text-sm font-serif tracking-wide shadow-xl transition-opacity duration-300 pointer-events-none z-50 ${showShareToast ? 'opacity-100' : 'opacity-0'}`}
+        >
           초대장 링크가 복사되었습니다
         </div>
       </div>

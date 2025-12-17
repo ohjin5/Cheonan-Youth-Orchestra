@@ -9,9 +9,7 @@ export const LocationInfo: React.FC = () => {
     <section className="relative py-20 px-6">
       <div 
         ref={ref}
-        className={`max-w-sm mx-auto transition-all duration-1000 transform ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        className={`max-w-sm mx-auto map-buttons scroll-reveal ${isVisible ? 'active' : ''}`}
       >
         <h2 className="text-center text-xl font-serif text-brown-900 mb-12 tracking-widest uppercase border-b-2 border-gold-500 inline-block pb-2">
             오시는 길

@@ -9,8 +9,8 @@ export const InvitationMessage: React.FC = () => {
     <section className="relative pt-20 pb-10 px-8 bg-beige-100/50 overflow-hidden">
       <div 
         ref={ref}
-        className={`relative z-10 transition-all duration-1000 delay-200 transform flex flex-col items-center text-center ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        className={`relative z-10 flex flex-col items-center text-center scroll-reveal ${
+          isVisible ? 'active' : ''
         }`}
       >
         <div className="mb-8 text-brown-400">

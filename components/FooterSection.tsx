@@ -1,9 +1,15 @@
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export const FooterSection: React.FC = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <footer className="py-12 px-6 bg-brown-900/5 text-center mt-8 font-serif">
-      <div className="max-w-sm mx-auto space-y-4">
+      <div 
+        ref={ref}
+        className={`max-w-sm mx-auto space-y-4 scroll-reveal ${isVisible ? 'active' : ''}`}
+      >
         <div className="text-xs text-brown-800 leading-relaxed space-y-2">
             <p>
                <span className="inline-block font-bold text-brown-900 mr-1">주관 |</span>

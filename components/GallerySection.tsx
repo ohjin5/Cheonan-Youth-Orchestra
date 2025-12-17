@@ -66,9 +66,7 @@ export const GallerySection: React.FC = () => {
     <section className="relative py-16 px-6 bg-white/30">
        <div 
         ref={ref}
-        className={`max-w-md mx-auto transition-all duration-1000 transform ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        className={`max-w-md mx-auto gallery-grid scroll-reveal ${isVisible ? 'active' : ''}`}
       >
         <h2 className="text-xl font-serif text-center text-brown-900 mb-8 tracking-widest uppercase border-b border-gold-500/30 pb-4 inline-block w-full">
             Gallery

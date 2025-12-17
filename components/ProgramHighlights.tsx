@@ -71,9 +71,7 @@ export const ProgramHighlights: React.FC = () => {
     <section className="relative py-16 px-6">
       <div 
         ref={ref}
-        className={`max-w-md mx-auto transition-all duration-1000 transform ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        className={`max-w-md mx-auto scroll-reveal ${isVisible ? 'active' : ''}`}
       >
         <div className="text-center mb-12">
             <h2 className="text-2xl font-serif text-brown-900 tracking-[0.2em] uppercase inline-block border-b-2 border-brown-300 pb-2">

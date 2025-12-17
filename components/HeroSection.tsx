@@ -1,6 +1,10 @@
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export const HeroSection: React.FC = () => {
+  // Although Hero is at top, we use the hook to trigger the standard animation
+  const { ref, isVisible } = useScrollAnimation(0);
+
   return (
     <section className="relative min-h-[100vh] w-full flex flex-col items-center justify-center overflow-hidden text-beige-100">
       
@@ -19,15 +23,11 @@ export const HeroSection: React.FC = () => {
       <div className="absolute bottom-[20%] right-[-10%] w-[60%] h-[60%] bg-gold-500 rounded-full blur-[100px] opacity-10 animate-pulse-slow delay-1000 z-0"></div>
       <div className="absolute inset-0 grain-overlay z-0"></div>
 
-      {/* Main Content - Gentle Slow Animation (Duration 1.5s, Delay 0.5s) */}
-      <div className="relative z-10 text-center flex flex-col items-center px-6 pt-[70px] pb-40 opacity-0 animate-[fadeIn_1.5s_ease-out_0.5s_forwards]">
-        <style>{`
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
-        
+      {/* Main Content - Header Content */}
+      <div 
+        ref={ref}
+        className={`relative z-10 text-center flex flex-col items-center px-6 pt-[70px] pb-40 header-content scroll-reveal ${isVisible ? 'active' : ''}`}
+      >
         <p className="font-serif text-gold-500 text-sm tracking-[0.3em] uppercase mb-6 drop-shadow-md">
           Invitation
         </p>

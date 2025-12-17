@@ -1,13 +1,19 @@
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 interface ActionButtonsProps {
   onShare: () => void;
 }
 
 export const ActionButtons: React.FC<ActionButtonsProps> = ({ onShare }) => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   return (
     <section className="relative pb-16 px-6 bg-beige-100/50">
-      <div className="max-w-md mx-auto flex flex-col gap-[15px]">
+      <div 
+        ref={ref}
+        className={`max-w-md mx-auto flex flex-col gap-[15px] scroll-reveal ${isVisible ? 'active' : ''}`}
+      >
         {/* Button 1: Reservation (Naver Form) - Gold */}
         <a 
           href="https://naver.me/5AgroLNR" 
