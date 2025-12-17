@@ -31,14 +31,14 @@ export const LeadershipSection: React.FC = () => {
                 <div className="text-base text-brown-800 leading-relaxed">
                     {/* Line 1: 3 people */}
                     <div className="mb-1">
-                        <span className="inline-block mx-1">이소연(Vn1)</span>
-                        <span className="inline-block mx-1">윤경희(Vn2)</span>
-                        <span className="inline-block mx-1">김민지(Fl)</span>
+                        <span className="inline-block mx-1">이소연(Violin1)</span>
+                        <span className="inline-block mx-1">윤경희(Violin2)</span>
+                        <span className="inline-block mx-1">김민지(Flute)</span>
                     </div>
                     {/* Line 2: 2 people */}
                     <div>
-                        <span className="inline-block mx-1">김동찬(Cl)</span>
-                        <span className="inline-block mx-1">서동우(Vc)</span>
+                        <span className="inline-block mx-1">김동찬(Clarinet)</span>
+                        <span className="inline-block mx-1">서동우(Cello)</span>
                     </div>
                 </div>
             </div>
