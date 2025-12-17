@@ -33,7 +33,7 @@ export const GallerySection: React.FC = () => {
       const slotIndex = Math.floor(Math.random() * 4);
       setFadingIndex(slotIndex);
 
-      // 2. Wait for fade out (500ms), then swap image source
+      // 2. Wait for fade out (1200ms - matches CSS duration), then swap image source
       setTimeout(() => {
         setDisplayImages(prev => {
           const newImages = [...prev];
@@ -44,18 +44,17 @@ export const GallerySection: React.FC = () => {
           const newImage = poolRef.current[poolIndex];
           
           // Swap logic: Displayed image goes back to pool, Pool image goes to display
-          // This ensures no duplicates exist on screen
           newImages[slotIndex] = newImage;
           poolRef.current[poolIndex] = oldImage;
           
           return newImages;
         });
-      }, 500);
+      }, 1200);
       
-      // 3. Reset fading status (fade in) after swap is ready (1000ms total cycle)
+      // 3. Reset fading status (start fade in) slightly after swap
       setTimeout(() => {
         setFadingIndex(null);
-      }, 1000);
+      }, 1300);
 
     }, 3000); // Trigger every 3 seconds
 
@@ -74,11 +73,18 @@ export const GallerySection: React.FC = () => {
         
         <div className="grid grid-cols-2 gap-3">
           {displayImages.map((src, index) => (
-             <div key={index} className="aspect-[4/3] overflow-hidden rounded-md shadow-sm bg-brown-900/10 relative">
+             <div key={index} className="aspect-[4/3] overflow-hidden rounded-md shadow-sm bg-brown-900/10 relative z-0">
                 <img 
                   src={src} 
                   alt={`Orchestra Gallery ${index + 1}`}
-                  className={`w-full h-full object-cover transition-opacity duration-500 ease-in-out ${fadingIndex === index ? 'opacity-0' : 'opacity-100'}`}
+                  className={`
+                    w-full h-full object-cover 
+                    transition-all duration-[1200ms] ease-in-out
+                    ${fadingIndex === index 
+                      ? 'opacity-0 blur-[8px] scale-100' // Hidden State: Transparent, Blurred, Normal Scale
+                      : 'opacity-100 blur-0 scale-[1.03]' // Visible State: Clear, Sharp, Slight Zoom
+                    }
+                  `}
                 />
              </div>
           ))}
